@@ -1,0 +1,13 @@
+{
+  "name": "naxisheji-case-admin",
+  "version": "1.0.0",
+  "description": "室内设计案例管理系统（访客前台展示 + 管理员后台）",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {}
+}

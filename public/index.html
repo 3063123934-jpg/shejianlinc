@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NAXI · 室内设计案例 | 住宅与工装设计作品集</title>
+    <meta name="description" content="NAXI 设计室内设计案例库，收录现代简约、原木风等住宅与工装设计作品，支持按名称与标签搜索、按分类浏览。" />
+    <meta name="keywords" content="室内设计,设计案例,住宅设计,工装设计,装修案例,NAXI设计" />
+    <meta name="author" content="NAXI DESIGN" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="http://localhost:3000/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="NAXI · 室内设计案例" />
+    <meta property="og:description" content="NAXI 设计室内设计案例库，收录住宅与工装设计作品，支持搜索与分类浏览。" />
+    <meta property="og:locale" content="zh_CN" />
+    <script type="application/ld+json" id="siteJsonLd">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "NAXI DESIGN",
+      "url": "http://localhost:3000/",
+      "description": "室内设计案例库"
+    }
+    </script>
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <div class="brand">NAXI<span class="dot"> · </span>DESIGN</div>
+      <a class="nav-link" href="/admin">后台管理</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="wrap">
+        <p class="search-desc empty" id="searchDesc"></p>
+
+        <div class="search-block">
+          <div class="search-row">
+            <input id="searchInput" type="text" placeholder="搜索案例名称或标签…" />
+            <button class="btn-search" id="searchBtn">搜 索</button>
+          </div>
+          <div class="filters" id="filters">
+            <button class="chip active" data-cat="全部">全部</button>
+            <button class="chip" data-cat="住宅">住宅</button>
+            <button class="chip" data-cat="工装">工装</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="gallery">
+      <div class="wrap">
+        <div class="grid" id="grid"></div>
+        <div class="empty-state" id="emptyState" style="display:none">未找到相关案例</div>
+        <button class="load-more" id="loadMore" style="display:none">加载更多</button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">© NAXI DESIGN · 室内设计案例库</div>
+  </footer>
+
+  <!-- detail modal -->
+  <div class="modal-mask" id="modal">
+    <button class="close" id="modalClose">&times;</button>
+    <div class="modal">
+      <h2 id="mTitle"></h2>
+      <div class="m-cat" id="mCat"></div>
+      <div class="m-tags" id="mTags"></div>
+      <div class="m-desc" id="mDesc"></div>
+      <div class="lb">
+        <div class="lb-main">
+          <button class="lb-nav lb-prev" id="lbPrev" aria-label="上一张">&#8249;</button>
+          <img id="lbImg" alt="" decoding="async" />
+          <button class="lb-nav lb-next" id="lbNext" aria-label="下一张">&#8250;</button>
+        </div>
+        <div class="lb-counter" id="lbCounter"></div>
+        <div class="lb-thumbs" id="lbThumbs"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <script src="/js/app.js"></script>
+</body>
+</html>

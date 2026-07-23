@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>后台管理 · NAXI DESIGN</title>
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="stylesheet" href="/css/admin.css" />
+</head>
+<body>
+
+  <!-- login -->
+  <div class="login-mask" id="loginMask">
+    <div class="login-card">
+      <div class="lt">NAXI DESIGN</div>
+      <div class="ls">后台管理系统</div>
+      <div class="field">
+        <label>管理员账号</label>
+        <input id="loginUser" type="text" placeholder="用户名" autocomplete="username" />
+      </div>
+      <div class="field">
+        <label>密码</label>
+        <input id="loginPass" type="password" placeholder="密码" autocomplete="current-password" />
+      </div>
+      <button class="btn-login" id="loginBtn">登 录</button>
+      <div class="login-err" id="loginErr"></div>
+    </div>
+  </div>
+
+  <!-- admin shell -->
+  <div class="admin-shell" id="adminShell">
+    <header class="admin-header">
+      <div class="wrap">
+        <div class="brand">NAXI · 后台</div>
+        <div class="admin-actions">
+          <span class="uname" id="uname"></span>
+          <button class="btn btn-sm" id="logoutBtn">退出登录</button>
+        </div>
+      </div>
+    </header>
+
+    <div class="wrap">
+      <div class="tabs">
+        <button class="tab active" data-tab="cases">案例管理</button>
+        <button class="tab" data-tab="settings">站点设置</button>
+        <button class="tab" data-tab="password">修改密码</button>
+      </div>
+
+      <!-- cases panel -->
+      <section class="panel show" id="panel-cases">
+        <div class="toolbar">
+          <div class="tt">案例列表</div>
+          <button class="btn btn-primary" id="newCaseBtn">+ 新建案例</button>
+        </div>
+        <div class="case-list" id="caseList"></div>
+      </section>
+
+      <!-- settings panel -->
+      <section class="panel" id="panel-settings">
+        <div class="toolbar"><div class="tt">搜索说明</div></div>
+        <div class="form-grid">
+          <div class="field">
+            <label>前台搜索栏上方的说明文字</label>
+            <textarea id="searchDescInput" rows="5" placeholder="例如：本站收录 NAXI 设计历年的住宅与工装案例，可按名称或标签搜索，并切换分类浏览。"></textarea>
+            <div class="hint">该文字会显示在前台搜索栏上方，向访客说明搜索与分类的用法。</div>
+          </div>
+          <button class="btn btn-primary" id="saveSettingsBtn">保存说明</button>
+        </div>
+      </section>
+
+      <!-- password panel -->
+      <section class="panel" id="panel-password">
+        <div class="toolbar"><div class="tt">修改管理员密码</div></div>
+        <div class="form-grid">
+          <div class="field">
+            <label>原密码</label>
+            <input id="oldPass" type="password" />
+          </div>
+          <div class="field">
+            <label>新密码（至少 6 位）</label>
+            <input id="newPass" type="password" />
+          </div>
+          <div class="field">
+            <label>确认新密码</label>
+            <input id="newPass2" type="password" />
+          </div>
+          <button class="btn btn-primary" id="savePassBtn">更新密码</button>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <!-- case edit modal -->
+  <div class="amask" id="caseModal">
+    <button class="aclose" id="caseModalClose">&times;</button>
+    <div class="amodal">
+      <h3 id="caseModalTitle">新建案例</h3>
+      <div class="form-grid">
+        <div class="field">
+          <label>案例名称</label>
+          <input id="fTitle" type="text" placeholder="如：现代简约三居室" />
+        </div>
+        <div class="field">
+          <label>分类</label>
+          <select id="fCategory">
+            <option value="住宅">住宅</option>
+            <option value="工装">工装</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>标签（用中文逗号“，”隔开）</label>
+          <textarea id="fTags" rows="2" placeholder="如：现代简约，原木风，小户型"></textarea>
+          <div class="hint">前台会将每个标签单独显示为一个小标签。</div>
+        </div>
+        <div class="field">
+          <label>案例描述（可选）</label>
+          <textarea id="fDesc" rows="3" placeholder="简要描述设计理念、面积、所在城市等"></textarea>
+        </div>
+        <div class="field">
+          <label>案例图片（每套最多 30 张）</label>
+          <div class="uploader">
+            <div class="up-tip" id="upTip">已选 0 / 30 张 · 支持 JPG / PNG / WEBP，将自动压缩</div>
+            <input id="fImages" type="file" accept="image/*" multiple />
+            <div class="previews" id="previews"></div>
+          </div>
+        </div>
+        <div style="display:flex;gap:12px;margin-top:24px">
+          <button class="btn btn-primary" id="saveCaseBtn">保存案例</button>
+          <button class="btn" id="cancelCaseBtn">取消</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <script src="/js/admin.js"></script>
+</body>
+</html>

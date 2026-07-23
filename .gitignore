@@ -1,0 +1,12 @@
+# 依赖
+node_modules/
+
+# 运行时数据（案例、图片、账号由 server 自动生成；云端请用持久卷挂载此目录）
+data/
+
+# 日志
+*.log
+
+# 本地隧道工具（按需自行放置，勿入库）
+cloudflared.exe
+ngrok.exe
