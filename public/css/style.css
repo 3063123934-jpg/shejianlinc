@@ -110,7 +110,7 @@ textarea { resize: vertical; line-height: 1.6; }
 
 .card { cursor: pointer; display: flex; flex-direction: column; }
 .card .thumb {
-  position: relative; width: 100%; aspect-ratio: 4/5; overflow: hidden;
+  position: relative; width: 100%; aspect-ratio: 3 / 4; overflow: hidden;
   background: #f4f4f4; border: 1px solid var(--line);
 }
 .card .thumb img {

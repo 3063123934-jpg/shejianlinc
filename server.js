@@ -7,7 +7,7 @@ const crypto = require('crypto');
 const { URL } = require('url');
 
 const ROOT = __dirname;
-const DATA_DIR = path.join(ROOT, 'data');
+const DATA_DIR = process.env.DATA_DIR ? path.resolve(process.env.DATA_DIR) : path.join(ROOT, 'data');
 const UPLOAD_DIR = path.join(DATA_DIR, 'uploads');
 const PUBLIC_DIR = path.join(ROOT, 'public');
 const CASES_FILE = path.join(DATA_DIR, 'cases.json');
