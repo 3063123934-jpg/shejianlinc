@@ -380,7 +380,7 @@ const server = http.createServer(async (req, res) => {
         const cases = readJSON(CASES_FILE, []);
         const title = String(body.title || '').trim();
         if (!title) return sendJSON(res, 400, { error: '请填写案例名称' });
-        const category = ['住宅', '工装'].includes(body.category) ? body.category : '住宅';
+        const category = ['住宅', '工装', '装修灵感库'].includes(body.category) ? body.category : '住宅';
         const id = crypto.randomBytes(8).toString('hex');
         let images = [];
         if (Array.isArray(body.images)) {
@@ -427,7 +427,7 @@ const server = http.createServer(async (req, res) => {
         const c = cases.find((x) => x.id === id);
         if (!c) return sendJSON(res, 404, { error: '案例不存在' });
         if (typeof body.title === 'string') c.title = body.title.trim() || c.title;
-        if (['住宅', '工装'].includes(body.category)) c.category = body.category;
+        if (['住宅', '工装', '装修灵感库'].includes(body.category)) c.category = body.category;
         if (typeof body.tagsText === 'string') c.tags = parseTags(body.tagsText);
         if (typeof body.description === 'string') c.description = body.description;
         if (typeof body.pinned === 'boolean') c.pinned = body.pinned;
